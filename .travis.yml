@@ -10,10 +10,10 @@ script:
     - docker run -e CI=true n23space/docker-react-test npm test -- --coverage
 
 after_success:
-    - docker -t n23space/docker-react-client ./client
-    - docker -t n23space/docker-react-nginx ./nginx
-    - docker -t n23space/docker-react-server ./server
-    - docker -t n23space/docker-react-worker ./worker
+    - docker build -t n23space/docker-react-client ./client
+    - docker build -t n23space/docker-react-nginx ./nginx
+    - docker build -t n23space/docker-react-server ./server
+    - docker build -t n23space/docker-react-worker ./worker
     # log in to docker cli
     - echo "$DOCKER_ID" | docker login -u "$DOCKER_PASSWORD" --password-stdin
     # take these images and push to docker hub
