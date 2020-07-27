@@ -15,7 +15,7 @@ after_success:
     - docker build -t n23space/docker-react-server ./server
     - docker build -t n23space/docker-react-worker ./worker
     # log in to docker cli
-    - echo "$DOCKER_ID" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # take these images and push to docker hub
     - docker push n23space/docker-react-client
     - docker push n23space/docker-react-nginx
