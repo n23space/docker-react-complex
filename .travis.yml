@@ -21,3 +21,17 @@ after_success:
     - docker push n23space/docker-react-nginx
     - docker push n23space/docker-react-server
     - docker push n23space/docker-react-worker
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: eu-west-3
+    app: React-Docker-App
+    env: ReactDockerApp-env
+    bucket_name: elasticbeanstalk-eu-west-3-128565263003
+    bucket_path: docker-react
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
